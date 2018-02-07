@@ -14,7 +14,7 @@ FROM   ubuntu:16.04
 
 # Set the Teamspeak version to download
 ENV TSV=3.1.0
-ENV SUFFIX=-Beta-2
+ENV SUFFIX=-Beta-3
 
 # Download and install everything from the repos.
 RUN    DEBIAN_FRONTEND=noninteractive \
