@@ -26,8 +26,8 @@ RUN    DEBIAN_FRONTEND=noninteractive \
 
 # Download and install TeamSpeak 3
 # Add secondary/backup server as well -- allow users to choose in case of blacklisting.
-#ADD    http://dl.4players.de/ts/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
-ADD	http://dl.4players.de/ts/releases/pre_releases/server/${TSV}${SUFFIX}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
+ADD    http://dl.4players.de/ts/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
+#ADD	http://dl.4players.de/ts/releases/pre_releases/server/${TSV}${SUFFIX}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
 #ADD    http://teamspeak.gameserver.gamed.de/ts3/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
 ADD    CHECKSUMS ./
 RUN    sha256sum -c CHECKSUMS
@@ -51,4 +51,3 @@ RUN    useradd teamspeak && mkdir /data && chown teamspeak:teamspeak /data
 VOLUME ["/data"]
 USER   teamspeak
 CMD    ["/start"]
-
