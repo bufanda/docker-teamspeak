@@ -13,7 +13,7 @@
 FROM   ubuntu:16.04
 
 # Set the Teamspeak version to download
-ENV TSV=3.1.0
+ENV TSV=3.1.1
 ENV SUFFIX=-Beta-3
 
 # Download and install everything from the repos.
