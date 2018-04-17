@@ -12,6 +12,15 @@
 # Base system is Ubuntu 16.04
 FROM   ubuntu:16.04
 
+#image label
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/bufanda/docker-teamspeak" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.schema-version="1.0.0-rc1"
+
 # Set the Teamspeak version to download
 ENV TSV=3.1.1
 ENV SUFFIX=-Beta-3
