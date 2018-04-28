@@ -22,8 +22,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0.0-rc1"
 
 # Set the Teamspeak version to download
-ENV TSV=3.1.1
-ENV SUFFIX=-Beta-3
+ENV TSV=3.1.2
 
 # Download and install everything from the repos.
 RUN    DEBIAN_FRONTEND=noninteractive \
