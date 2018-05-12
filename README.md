@@ -5,8 +5,8 @@ A nice and easy way to get a TeamSpeak server up and running using docker. For
 help on getting started with docker see the [official getting started guide][0].
 For more information on TeamSpeak and check out it's [website][1].
 
-[![](https://images.microbadger.com/badges/version/bufanda/teamspeak:3.1.1.svg)](https://microbadger.com/images/bufanda/teamspeak:3.1.1 "Get your own version badge on microbadger.com") 
-[![](https://images.microbadger.com/badges/image/bufanda/teamspeak:3.1.1.svg)](https://microbadger.com/images/bufanda/teamspeak:3.1.1 "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/bufanda/teamspeak:3.1.3.svg)](https://microbadger.com/images/bufanda/teamspeak:3.1.3 "Get your own version badge on microbadger.com") 
+[![](https://images.microbadger.com/badges/image/bufanda/teamspeak:3.1.3.svg)](https://microbadger.com/images/bufanda/teamspeak:3.1.3 "Get your own image badge on microbadger.com")
 
 ## Building docker-teamspeak
 
@@ -35,7 +35,7 @@ TS3SERVER_LICENSE=accept. For the later add to the docker command the following 
 
     -e TS3SERVER_LICENSE='accept'
 
-E.g. 
+E.g.
 
     sudo docker run -d=true -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data -e TS3SERVER_LICENSE='accept' overshard/teamspeak /start
 
@@ -91,4 +91,3 @@ Benjamin Denhartog has created an alternative [MurMur/Mumble server][2] if you'r
 [2]: https://github.com/bddenhartog/docker-murmur
 [3]: https://github.com/overshard
 [4]: https://github.com/giant3gg
-
