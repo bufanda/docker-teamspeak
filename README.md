@@ -35,7 +35,7 @@ TS3SERVER_LICENSE=accept. For the later add to the docker command the following 
 
     -e TS3SERVER_LICENSE='accept'
 
-E.g. 
+E.g.
 
     sudo docker run -d=true -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data -e TS3SERVER_LICENSE='accept' overshard/teamspeak /start
 
@@ -91,4 +91,3 @@ Benjamin Denhartog has created an alternative [MurMur/Mumble server][2] if you'r
 [2]: https://github.com/bddenhartog/docker-murmur
 [3]: https://github.com/overshard
 [4]: https://github.com/giant3gg
-
