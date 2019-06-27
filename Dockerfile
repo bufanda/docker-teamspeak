@@ -22,7 +22,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0.0-rc1"
 
 # Set the Teamspeak version to download
-ENV TSV=3.8.0
+ENV TSV=3.9.0
 
 # Download and install everything from the repos.
 RUN    DEBIAN_FRONTEND=noninteractive \
@@ -43,7 +43,7 @@ RUN    sha256sum -c CHECKSUMS
 
 RUN    tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2 && \
        mv teamspeak3-server_linux_amd64 /opt/teamspeak && \
-       rm teamspeak3-server_linux_amd64-$TSV.tar.bz2 
+       rm teamspeak3-server_linux_amd64-$TSV.tar.bz2
 
 # Load in all of our config files.
 ADD    ./scripts/start /start
