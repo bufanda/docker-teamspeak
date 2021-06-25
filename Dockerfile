@@ -38,7 +38,7 @@ RUN    DEBIAN_FRONTEND=noninteractive \
 ADD    https://files.teamspeak-services.com/releases/server/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 /
 
 COPY   CHECKSUMS /
-RUN    sha256sum -c CHECKSUMS \
+RUN    sha256sum -c CHECKSUMS && \
        tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2  -C /opt/teamspeak --strip-components=1 && \
        rm teamspeak3-server_linux_amd64-$TSV.tar.bz2
 
