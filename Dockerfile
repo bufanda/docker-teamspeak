@@ -25,28 +25,25 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 ENV TSV=3.13.6
 
 # Download and install everything from the repos.
+# hadolint ignore=DL3008
 RUN    DEBIAN_FRONTEND=noninteractive \
         apt-get -y update && \
-        apt-get -y install bzip2 ca-certificates && \
+        apt-get -y install --no-install-recommends bzip2 ca-certificates && \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
         apt-get autoremove -y && \
         apt-get clean
 
 # Download and install TeamSpeak 3
 # Add secondary/backup server as well -- allow users to choose in case of blacklisting.
-#ADD    http://dl.4players.de/ts/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
-ADD    https://files.teamspeak-services.com/releases/server/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
-#ADD	http://dl.4players.de/ts/releases/pre_releases/server/${TSV}${SUFFIX}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
-#ADD    http://teamspeak.gameserver.gamed.de/ts3/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
-ADD    CHECKSUMS ./
-RUN    sha256sum -c CHECKSUMS
+ADD    https://files.teamspeak-services.com/releases/server/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 /
 
-RUN    tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2 && \
-       mv teamspeak3-server_linux_amd64 /opt/teamspeak && \
+COPY   CHECKSUMS /
+RUN    sha256sum -c CHECKSUMS \
+       tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2  -C /opt/teamspeak --strip-components=1 && \
        rm teamspeak3-server_linux_amd64-$TSV.tar.bz2
 
 # Load in all of our config files.
-ADD    ./scripts/start /start
+COPY    ./scripts/start /start
 
 # Fix all permissions
 RUN    chmod +x /start
@@ -58,6 +55,7 @@ EXPOSE 10011
 
 RUN    useradd teamspeak && mkdir /data && chown teamspeak:teamspeak /data && \
        chown -R teamspeak:teamspeak /opt/teamspeak
+
 VOLUME ["/data"]
 USER   teamspeak
 CMD    ["/start"]
