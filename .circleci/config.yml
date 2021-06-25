@@ -13,7 +13,6 @@ workflows:
   version: 2
   scripts:
     jobs:
-    - flake8_lint
     -   docker/hadolint:
           dockerfiles: ./Dockerfile
           executor-class: medium
