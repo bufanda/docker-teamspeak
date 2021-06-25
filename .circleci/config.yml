@@ -1,0 +1,22 @@
+---
+version: 2.1
+
+orbs:
+  docker: circleci/docker@1.6.0
+
+executors:
+  hadolint:
+    docker:
+      - image: ghcr.io/hadolint/hadolint
+
+workflows:
+  version: 2
+  scripts:
+    jobs:
+    - flake8_lint
+    -   docker/hadolint:
+          dockerfiles: ./Dockerfile
+          executor-class: medium
+          hadolint-tag: 2.5.0-debian
+          #ignore-rules: 'DL4005,DL3008'
+          trusted-registries: 'docker.io'
