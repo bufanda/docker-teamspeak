@@ -10,7 +10,7 @@
 # -----------------------------------------------------------------------------
 
 # Base system is Ubuntu 16.04
-FROM   ubuntu:16.04
+FROM   ubuntu:16.04 as base
 
 #image label
 ARG BUILD_DATE
@@ -21,6 +21,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0.0-rc1"
 
+FROM base as build
 # Set the Teamspeak version to download
 ENV TSV=3.13.6
 
@@ -43,11 +44,16 @@ RUN    sha256sum -c CHECKSUMS && \
        tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2  -C /opt/teamspeak --strip-components=1 && \
        rm teamspeak3-server_linux_amd64-$TSV.tar.bz2
 
+FROM base
+
+#copy ts file
+COPY --from=build /opt /opt
+
 # Load in all of our config files.
 COPY    ./scripts/start /start
 
 # Fix all permissions
-RUN    chmod +x /start
+RUN   ls -la /opt ; chmod +x /start
 
 # /start runs it.
 EXPOSE 9987/udp
