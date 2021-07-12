@@ -21,10 +21,6 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0.0-rc1"
 
-FROM base as build
-# Set the Teamspeak version to download
-ENV TSV=3.13.6
-
 # Download and install everything from the repos.
 # hadolint ignore=DL3008
 RUN    DEBIAN_FRONTEND=noninteractive \
@@ -33,6 +29,10 @@ RUN    DEBIAN_FRONTEND=noninteractive \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
         apt-get autoremove -y && \
         apt-get clean
+
+FROM base as build
+# Set the Teamspeak version to download
+ENV TSV=3.13.6
 
 # Download and install TeamSpeak 3
 # Add secondary/backup server as well -- allow users to choose in case of blacklisting.
@@ -50,10 +50,10 @@ FROM base
 COPY --from=build /opt /opt
 
 # Load in all of our config files.
-COPY    ./scripts/start /start
+COPY  ./scripts/start /start
 
 # Fix all permissions
-RUN   ls -la /opt ; chmod +x /start
+RUN   chmod +x /start
 
 # /start runs it.
 EXPOSE 9987/udp
