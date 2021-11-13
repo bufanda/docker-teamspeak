@@ -1,0 +1,11 @@
+---
+kind: pipeline
+name: ts3build
+
+steps:
+  - name: hadolint
+    #image: hadolint/hadolint:latest-debian
+    image: "ghcr.io/hadolint/hadolint:latest-debian"
+    commands:
+      - hadolint --version
+      - hadolint  Dockerfile
