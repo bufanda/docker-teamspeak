@@ -2,6 +2,10 @@
 kind: pipeline
 name: ts3build
 
+platform:
+  os: linux
+  arch: amd64
+
 steps:
   - name: hadolint
     #image: hadolint/hadolint:latest-debian
