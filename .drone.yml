@@ -9,3 +9,14 @@ steps:
     commands:
       - hadolint --version
       - hadolint  Dockerfile
+  - name: build master
+    image: plugins/docker
+    settings:
+      repo: sunna.nbg:5050/teamspeak
+      registry: sunna.nbg:5050
+      autotag: yes
+      insecure: yes
+    when:
+      event:
+        - tag
+        - push
