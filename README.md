@@ -5,9 +5,6 @@ A nice and easy way to get a TeamSpeak server up and running using docker. For
 help on getting started with docker see the [official getting started guide][0].
 For more information on TeamSpeak and check out it's [website][1].
 
-[![](https://images.microbadger.com/badges/version/bufanda/teamspeak:3.13.7.svg)](https://microbadger.com/images/bufanda/teamspeak:3.13.7 "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/bufanda/teamspeak:3.13.7.svg)](https://microbadger.com/images/bufanda/teamspeak:3.13.7 "Get your own image badge on microbadger.com")
-
 ## Building docker-teamspeak
 
 Running this will build you a docker image with the latest version of both
