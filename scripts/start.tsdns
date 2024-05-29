@@ -9,9 +9,9 @@
 
 # Checking if files exist to make sure we're backing up the database to data
 
-if [ ! -f /opt/teamspeak/tstns/tsdns_settings.ini ] && [ -f /data/tstns/tsdns_settings.ini ]
+if [ ! -f /opt/teamspeak/tsdns/tsdns_settings.ini ] && [ -f /data/tsdns/tsdns_settings.ini ]
 then
-    ln -s /data/tstns/tsdns_settings.ini /opt/teamspeak/tstns/tsdns_settings.ini
+    ln -s /data/tsdns/tsdns_settings.ini /opt/teamspeak/tsdns/tsdns_settings.ini
 fi
 
 # Run the teamspeak server
