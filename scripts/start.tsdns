@@ -17,4 +17,4 @@ fi
 # Run the teamspeak server
 export LD_LIBRARY_PATH=/opt/teamspeak
 cd /opt/teamspeak/tsdns
-./tsdns 
+./tsdnsserver
