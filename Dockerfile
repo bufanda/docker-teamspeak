@@ -11,7 +11,7 @@
 
 # Base system is Ubuntu 16.04
 # FROM   ubuntu:16.04
-FROM   ubuntu:20.04
+FROM   ubuntu:22.04
 
 #image label
 ARG BUILD_DATE
