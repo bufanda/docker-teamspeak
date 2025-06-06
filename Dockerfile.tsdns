@@ -10,7 +10,7 @@
 # -----------------------------------------------------------------------------
 
 # Base system is alpine
-FROM   alpine:3.16
+FROM   alpine:3.22
 
 #image label
 ARG BUILD_DATE
