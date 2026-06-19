@@ -61,7 +61,7 @@ EXPOSE 9987/udp
 EXPOSE 30033
 EXPOSE 10011
 
-RUN    addgroup -S teamspeak && adduser -S teamspeak -G teamspeak && \
+RUN    addgroup --gid 1000 -S teamspeak && adduser -G 1000 --uid 1000 -S teamspeak -G teamspeak && \
        mkdir /data && chown teamspeak:teamspeak /data && \
        chown -R teamspeak:teamspeak /opt/teamspeak
 

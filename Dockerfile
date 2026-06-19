@@ -55,7 +55,7 @@ EXPOSE 9987/udp
 EXPOSE 30033
 EXPOSE 10011
 
-RUN    useradd teamspeak && mkdir /data && chown teamspeak:teamspeak /data && \
+RUN    useradd --uid 1001 teamspeak && mkdir /data && chown teamspeak:teamspeak /data && \
        chown -R teamspeak:teamspeak /opt/teamspeak
 
 VOLUME ["/data"]

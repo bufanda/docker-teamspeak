@@ -59,7 +59,7 @@ RUN    chmod +x /start
 # /start runs it.
 EXPOSE 41144/udp
 
-RUN    addgroup -S teamspeak && adduser -S teamspeak -G teamspeak && \
+RUN    addgroup --gid 1000 -S teamspeak && adduser -G 1000 --uid 1000 -S teamspeak -G teamspeak && \
        mkdir /data && chown teamspeak:teamspeak /data && \
        chown -R teamspeak:teamspeak /opt/teamspeak
 
