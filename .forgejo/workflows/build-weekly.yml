@@ -3,7 +3,7 @@ name: Build action
 enable-email-notifications: true
 on:
   schedule:
-    - cron: '0 4 * * 3'
+    - cron: '0 4 3 * *'
       timezone: Europe/Berlin
 
 jobs:
