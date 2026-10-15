@@ -14,4 +14,4 @@ jobs:
         id: image_tag
         run:  echo "tag=$(date +%Y%m%d)" >> $FORGEJO_OUTPUT
       - name: Build image
-        run: docker build -t registry.nbg.bufanda.de/bufanda/teamspeak:latest alpine
+        run: docker build -t registry.nbg.bufanda.de/bufanda/teamspeak:latest -f Dockerfile.alpine .
